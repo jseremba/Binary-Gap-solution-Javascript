@@ -7,12 +7,14 @@ function solution(N) {
     var curMaxGap = 0;
     var binStr = N.toString(2);
     var startIndexFromEnd = binStr.length-1;
+    var countStart = 0;
     for (startIndexFromEnd; startIndexFromEnd >= 0; startIndexFromEnd--) {
         if (binStr.charAt(startIndexFromEnd) != '0') {
+            countStart = i;
             break;
         }
     }
-    for (var i = startIndexFromEnd - 1; i >= 0; i--) {
+    for (var i = countStart; i >= 0; i--) {
         if (binStr.charAt(i) == '0') {
             curMaxGap = curMaxGap+1;
         } else {
